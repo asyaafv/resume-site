@@ -4,7 +4,7 @@
 
 Welcome recruiters; this is my personal website to showcase my resume.
 
-🌐 Live site: [View my resume](https://yourusername.github.io/resume-site)
+:D
 
 ---
 
