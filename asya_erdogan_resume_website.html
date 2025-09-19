@@ -7,81 +7,63 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --pink: #ff8fb1;
-      --blue: #7ad3ff;
-      --bg: linear-gradient(135deg, rgba(250,240,255,1) 0%, rgba(240,255,255,1) 100%);
+    :root {
+      --pink: #ff9ac1;
+      --blue: #7acfff;
+      --purple: #c98aff;
+      --bg: linear-gradient(135deg, #ffe6f0, #e6f7ff);
       --card: rgba(255,255,255,0.85);
       --muted: #5f6b76;
-      --glass: rgba(255,255,255,0.6);
-      --radius: 14px;
+      --radius: 18px;
       font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     }
 
     *{box-sizing:border-box}
     html,body{height:100%;margin:0;background:var(--bg);color:#0f1720}
 
-    /* page container */
-    .container{max-width:1100px;margin:36px auto;padding:28px;display:grid;grid-template-columns: 320px 1fr;gap:28px}
+    .container{max-width:1100px;margin:36px auto;padding:28px;display:grid;grid-template-columns:320px 1fr;gap:28px}
 
-    /* sidebar */
-    .sidebar{background:linear-gradient(180deg,var(--card),rgba(255,255,255,0.9));backdrop-filter: blur(6px);border-radius:var(--radius);padding:22px;box-shadow:0 6px 24px rgba(15,23,32,0.08)}
-    .avatar{width:100%;height:220px;border-radius:12px;background: linear-gradient(135deg,var(--pink),var(--blue));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px}
-    .name{font-size:20px;margin-top:14px;font-weight:700}
+    .sidebar{background:linear-gradient(180deg,var(--card),rgba(255,255,255,0.95));backdrop-filter: blur(10px);border-radius:var(--radius);padding:28px;box-shadow:0 10px 30px rgba(15,23,32,0.08);border: 2px solid var(--pink)}
+    .avatar{width:100%;height:220px;border-radius:12px;background:linear-gradient(135deg,var(--pink),var(--blue));display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:24px;text-shadow:0 1px 3px rgba(0,0,0,0.3)}
+    .name{font-size:24px;margin-top:16px;font-weight:800;color:var(--purple)}
     .role{color:var(--muted);margin-top:6px;font-size:14px}
 
     .contact{margin-top:18px;font-size:14px}
-    .contact a{color:inherit;text-decoration:none}
-    .skill-pill{display:inline-block;padding:6px 10px;margin:6px 6px 0 0;border-radius:999px;background:rgba(0,0,0,0.06);font-size:13px}
+    .contact a{color:var(--purple);text-decoration:none;font-weight:600}
+    .skill-pill{display:inline-block;padding:6px 12px;margin:6px 6px 0 0;border-radius:999px;background:linear-gradient(135deg,var(--pink),var(--blue));color:white;font-size:13px;font-weight:600}
 
-    /* main content */
     .main{background:transparent}
-    header.card{background: linear-gradient(90deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));padding:18px;border-radius:var(--radius);box-shadow:0 6px 24px rgba(15,23,32,0.04);display:flex;justify-content:space-between;align-items:center}
-    .headline{margin:0}
-    .summary{color:var(--muted);margin-top:6px}
+    header.card{background: linear-gradient(90deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));padding:24px;border-radius:var(--radius);box-shadow:0 8px 28px rgba(15,23,32,0.06);display:flex;justify-content:space-between;align-items:center}
+    .headline{margin:0;font-size:22px;color:var(--purple);font-weight:700}
+    .summary{color:var(--muted);margin-top:8px}
 
-    section{margin-top:20px}
+    section{margin-top:24px}
     .section-title{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-    .section-title h3{margin:0}
+    .section-title h3{margin:0;color:var(--purple);border-bottom:2px solid var(--pink);padding-bottom:2px}
 
-    .card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 8px 30px rgba(12,20,30,0.03)}
-    .job{padding:10px 0;border-bottom:1px dashed rgba(15,23,32,0.06)}
+    .card{background:var(--card);padding:18px;border-radius:var(--radius);box-shadow:0 10px 30px rgba(12,20,30,0.03);border: 2px solid var(--blue)}
+    .job{padding:12px 0;border-bottom:1px dashed rgba(15,23,32,0.08)}
     .job:last-child{border-bottom:none}
-    .job h4{margin:0}
+    .job h4{margin:0;color:var(--purple)}
     .job .meta{color:var(--muted);font-size:13px;margin-top:4px}
     .bullets{margin:8px 0 0 18px}
 
-    /* projects grid */
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
-    .project{padding:12px;border-radius:10px;background:linear-gradient(135deg,rgba(255,255,255,0.7),rgba(255,255,255,0.8));border:1px solid rgba(0,0,0,0.03)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+    .project{padding:14px;border-radius:14px;background:linear-gradient(135deg,rgba(255,182,193,0.7),rgba(173,216,230,0.7));border:2px solid var(--purple);transition: transform 0.3s ease;}
+    .project:hover{transform: translateY(-4px) scale(1.02)}
 
-    /* footer/contact */
-    .cta{display:inline-block;padding:10px 16px;border-radius:10px;background:linear-gradient(90deg,var(--pink),var(--blue));color:white;font-weight:600;text-decoration:none}
+    .cta{display:inline-block;padding:12px 20px;border-radius:12px;background:linear-gradient(90deg,var(--pink),var(--blue));color:white;font-weight:700;text-decoration:none;transition: transform 0.2s ease}
+    .cta:hover{transform:scale(1.05)}
 
-    /* responsive */
-    @media (max-width:900px){
-      .container{grid-template-columns:1fr;padding:18px}
-      .avatar{height:160px}
-    }
-
-    /* small helpers */
-    .muted{color:var(--muted)}
-
-    /* decorative accent */
-    .accent-bar{height:8px;border-radius:999px;background:linear-gradient(90deg,var(--pink),var(--blue));margin-top:10px}
-
-    /* print */
-    @media print{body{background:white} .container{box-shadow:none;padding:0} .sidebar{box-shadow:none} a[href]:after{content:''}}
+    @media (max-width:900px){.container{grid-template-columns:1fr;padding:18px}.avatar{height:160px}}
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- SIDEBAR -->
-    <aside class="sidebar" aria-label="Sidebar with contact and skills">
-      <div class="avatar">YOUR PHOTO / AVATAR</div>
+    <aside class="sidebar">
+      <div class="avatar">YOUR PHOTO</div>
       <div class="name">Asya Erdogan</div>
-      <div class="role">Computer Science — University of Central Missouri (Class of 2028)</div>
-      <div class="accent-bar" aria-hidden="true"></div>
+      <div class="role">Computer Science — University of Central Missouri (2028)</div>
 
       <div class="contact">
         <p class="muted">Contact</p>
@@ -93,30 +75,13 @@
 
       <div style="margin-top:14px">
         <p class="muted">Skills</p>
-        <!-- Replace or remove pills as you wish -->
         <div>
           <span class="skill-pill">Java</span>
           <span class="skill-pill">C#</span>
           <span class="skill-pill">Python</span>
           <span class="skill-pill">JavaScript</span>
           <span class="skill-pill">SQL</span>
-          <span class="skill-pill">HTML/CSS</span>
         </div>
-      </div>
-
-      <div style="margin-top:14px">
-        <p class="muted">Tools</p>
-        <div>
-          <span class="skill-pill">.NET Core</span>
-          <span class="skill-pill">Git</span>
-          <span class="skill-pill">Docker</span>
-          <span class="skill-pill">Databricks</span>
-        </div>
-      </div>
-
-      <div style="margin-top:18px" class="muted">
-        <p><strong>Availability:</strong> Summer 2026 Internship</p>
-        <p><strong>Location:</strong> Kansas City metro</p>
       </div>
 
       <div style="margin-top:18px">
@@ -124,7 +89,6 @@
       </div>
     </aside>
 
-    <!-- MAIN -->
     <main class="main">
       <header class="card">
         <div>
@@ -132,87 +96,58 @@
           <p class="summary">Junior Computer Science student at UCM • Interested in software engineering, data engineering, and ML/NLP for real-world impact</p>
         </div>
         <div style="text-align:right">
-          <small class="muted">Resume • Portfolio • Projects</small>
           <div style="margin-top:8px"><a class="cta" href="#" onclick="downloadResume(event)">Download PDF</a></div>
         </div>
       </header>
 
-      <section aria-labelledby="about" class="card" id="about">
-        <div class="section-title"><h3 id="about">About</h3></div>
-        <p> <!-- fill in with a short professional summary -->
-          I am a motivated Computer Science student focused on building reliable software and extracting insights from data. I enjoy problem solving and contributing to projects that improve people's lives. <!-- replace this text -->
-        </p>
+      <section class="card">
+        <div class="section-title"><h3>About</h3></div>
+        <p>I am a motivated Computer Science student focused on building reliable software and extracting insights from data. I enjoy problem solving and contributing to projects that improve people's lives.</p>
       </section>
 
-      <section aria-labelledby="experience">
-        <div class="section-title"><h3 id="experience">Experience</h3></div>
+      <section>
+        <div class="section-title"><h3>Experience</h3></div>
         <div class="card">
-          <!-- Repeat .job blocks for each experience -->
-          <div class="job">
-            <h4>Position Title — Company Name</h4>
-            <div class="meta">Location • Month Year — Month Year</div>
-            <ul class="bullets">
-              <li>Brief accomplishment or responsibility. (Replace with your details.)</li>
-              <li>Another accomplishment demonstrating impact, metrics, or technologies used.</li>
-            </ul>
-          </div>
-
           <div class="job">
             <h4>Student Developer — University Project</h4>
             <div class="meta">University of Central Missouri • 2024</div>
             <ul class="bullets">
-              <li>Built a web application using JavaScript and HTML/CSS that ...</li>
-              <li>Implemented backend logic in C#/.NET Core for authentication and APIs.</li>
+              <li>Built a web application using JavaScript and HTML/CSS.</li>
+              <li>Implemented backend logic in C#/.NET Core.</li>
             </ul>
           </div>
         </div>
       </section>
 
-      <section aria-labelledby="projects">
-        <div class="section-title"><h3 id="projects">Projects</h3></div>
+      <section>
+        <div class="section-title"><h3>Projects</h3></div>
         <div class="grid">
           <article class="project">
             <h4>Project Title</h4>
             <p class="muted">Short description — technologies used.</p>
-            <p style="margin-top:8px">Replace with a one-line summary and link to repo or demo.</p>
-          </article>
-
-          <article class="project">
-            <h4>Another Project</h4>
-            <p class="muted">Description — tech stack</p>
           </article>
         </div>
       </section>
 
-      <section aria-labelledby="education">
-        <div class="section-title"><h3 id="education">Education</h3></div>
+      <section>
+        <div class="section-title"><h3>Education</h3></div>
         <div class="card">
           <h4>University of Central Missouri</h4>
           <div class="meta">Bachelor of Science in Computer Science — Expected May 2028</div>
-          <p class="muted">Relevant coursework: Data Structures, Algorithms, Databases, Software Engineering, Machine Learning (replace with your classes)</p>
+          <p class="muted">Relevant coursework: Data Structures, Algorithms, Databases, Software Engineering, Machine Learning</p>
         </div>
       </section>
 
-      <section aria-labelledby="skills">
-        <div class="section-title"><h3 id="skills">Technical Skills</h3></div>
+      <section id="contact">
+        <div class="section-title"><h3>Contact</h3></div>
         <div class="card">
-          <p><strong>Languages:</strong> Java, C#, C++, Python, JavaScript</p>
-          <p><strong>Databases:</strong> SQL Server, MySQL, MongoDB (NoSQL)</p>
-          <p><strong>Tools:</strong> Git, Docker, Databricks, Spark</p>
-          <p><strong>Other:</strong> HTML/CSS, React (basic), CI/CD concepts</p>
-        </div>
-      </section>
-
-      <section aria-labelledby="contact" id="contact">
-        <div class="section-title"><h3 id="contact-title">Contact</h3></div>
-        <div class="card">
-          <p>If you'd like to get in touch, please email me at <a href="mailto:aerdogan@ucmo.edu">aerdogan@ucmo.edu</a> or use the links in the sidebar. I am available for Summer 2026 internships in the Kansas City metro area.</p>
-          <p style="margin-top:12px"><strong>Portfolio / GitHub:</strong> <a href="#">github.com/your-username</a></p>
+          <p>Email me at <a href="mailto:aerdogan@ucmo.edu">aerdogan@ucmo.edu</a></p>
+          <p>Portfolio / GitHub: <a href="#">github.com/your-username</a></p>
         </div>
       </section>
 
       <footer style="margin-top:20px;text-align:center;color:var(--muted)">
-        <small>Designed &middot; Built by Asya Erdogan — Template generated for quick editing.</small>
+        <small>Designed &middot; Built by Asya Erdogan</small>
       </footer>
     </main>
   </div>
@@ -220,12 +155,8 @@
   <script>
     function downloadResume(e){
       e.preventDefault();
-      // TODO: replace the URL with your actual PDF file path
       const pdfUrl = '#';
-      if(pdfUrl === '#'){
-        alert('Attach your resume PDF and replace the download URL in the code.');
-        return;
-      }
+      if(pdfUrl === '#'){ alert('Attach your resume PDF and replace the URL.'); return; }
       window.open(pdfUrl, '_blank');
     }
   </script>
